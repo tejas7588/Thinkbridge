@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        padding: 20px;
+        max-width: 600px;
+        margin: auto;
+      }
+      form {
+        display: grid;
+        grid-gap: 15px;
+      }
+      fieldset {
+        border: 1px solid #ccc;
+        padding: 20px;
+        border-radius: 8px;
+      }
+      legend {
+        font-weight: bold;
+        padding: 0 10px;
+      }
+      label {
+        font-weight: 500;
+        display: block;
+        margin-bottom: 5px;
+      }
+      input,
+      select {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      input:focus,
+      select:focus {
+        outline: 2px solid #007bff;
+        outline-offset: 2px;
+      }
+      .form-group {
+        margin-bottom: 15px;
+      }
+      button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+      .help-text {
+        font-size: 0.9em;
+        color: #666;
+        margin-top: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Create Your Account</h1>
+
+    <form action="/signup" method="POST">
+      <fieldset>
+        <legend>Account Information</legend>
+        <div class="form-group">
+          <label for="username"
+            >Username <span aria-hidden="true">*</span></label
+          >
+          <input
+            type="text"
+            id="username"
+            name="username"
+            required
+            minlength="5"
+            aria-describedby="username-help"
+          />
+          <div id="username-help" class="help-text">
+            Must be at least 5 characters long.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email <span aria-hidden="true">*</span></label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label for="password"
+            >Password <span aria-hidden="true">*</span></label
+          >
+          <input
+            type="password"
+            id="password"
+            name="password"
+            required
+            minlength="8"
+            aria-describedby="password-help"
+          />
+          <div id="password-help" class="help-text">
+            Must be at least 8 characters long.
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Personal Details</legend>
+        <div class="form-group">
+          <label for="country">Country</label>
+          <select id="country" name="country">
+            <option value="">Select a country...</option>
+            <option value="us">United States</option>
+            <option value="ca">India</option>
+            <option value="gb">United Kingdom</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="dob"
+            >Date of Birth <span aria-hidden="true">*</span></label
+          >
+          <input type="date" id="dob" name="dob" required />
+        </div>
+      </fieldset>
+
+      <button type="submit">Sign Up</button>
+    </form>
+  </body>
+</html>

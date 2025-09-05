@@ -1,0 +1,88 @@
+/*
+ * style.css
+ * This file demonstrates the core CSS concepts of selectors, the box model, and the cascade.
+ */
+
+/*  1. The Box Model*/
+
+/* This element demonstrates the default 'content-box' behavior. */
+.box-model-demo {
+  /* **Content:** The innermost area where content resides. */
+  width: 500px;
+  height: 200px;
+  font-style: oblique;
+
+  /* **Padding:** Space between the content and the border. */
+  padding: 20px;
+
+  /* **Border:** A line surrounding the padding. */
+  border: 5px solid #d10d0d;
+
+  /* **Margin:** Space outside the border, separating it from other elements. */
+  margin: 30px;
+
+  background-color: #17db2b;
+}
+.box-model2-demo {
+  align-content: center;
+  position: relative;
+  width: 400px;
+  height: 200px;
+  padding: 9px;
+  border: 15px solid orangered;
+  margin: 10px;
+  background-color: antiquewhite;
+}
+
+/* This element demonstrates 'box-sizing: border-box', which is a modern best practice. */
+.border-box-demo {
+  /* With 'border-box', the width now includes padding and border. */
+  width: 700px;
+  height: 60px;
+  padding: 4px;
+  border: 5px solid #28a745;
+
+  background-color: #e2ffe8;
+  box-sizing: border-box; /* This is the key property. */
+}
+
+/* =============================================
+   2. Selectors and Specificity
+   ============================================= */
+
+/* **Type Selector:** Targets elements by their tag name (e.g., <h1>). */
+h1 {
+  color: #333;
+  font-family: sans-serif;
+}
+
+/* **Class Selector:** Targets elements with a specific class. Higher specificity than a type selector. */
+.title {
+  color: #c0392b; /* This will override the color from the h1 selector. */
+}
+
+/* **ID Selector:** Targets a single unique element by its ID. Highest specificity. */
+#main-title {
+  color: #2c3e50; /* This will override the color from the .title selector. */
+}
+
+/* **Descendant Selector:** Targets an element that is a descendant of another. */
+.container p {
+  font-style: oblique;
+  color: #6c757d;
+}
+
+/* =============================================
+   3. The Cascade and Inheritance
+   ============================================= */
+
+/* **Inheritance:** Some properties (like font-family) are passed down from parent to child. */
+body {
+  font-family: Arial, sans-serif; /* All child elements will inherit this font. */
+  color: #444; /* All text on the page will inherit this color. */
+}
+
+/* **The Cascade:** Rules defined later with the same specificity override earlier ones. */
+.some-text {
+  color: #007bff; /* This rule comes after the body rule and overrides its color for this element. */
+}
