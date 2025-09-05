@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Session 5 - CSS Polish</title>
+    <link rel="stylesheet" href="Session5/components.css" />
+  </head>
+  <body>
+    <header>
+      <h1>My Portfolio</h1>
+    </header>
+
+    <main>
+      <section class="gallery">
+        <h2>Responsive Image Example</h2>
+        <img
+          src="Session5/images/test.jpg"
+          srcset="
+            Session5/images/test.jpg  600w,
+            Session5/images/test.jpg 1200w,
+            Session5/images/test.jpg 1800w
+          "
+          sizes="(max-width: 600px) 480px,
+               (max-width: 1200px) 800px,
+               1200px"
+          alt="Test Image"
+          class="responsive-img"
+        />
+      </section>
+
+      <section>
+        <h2>Transition & Transform Example</h2>
+        <button class="fancy-btn">Hover Me</button>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 My Portfolio</p>
+    </footer>
+  </body>
+</html>
