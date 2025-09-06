@@ -7,6 +7,7 @@
   --radius: 12px;
   --gap: 14px;
   --shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  --accent-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
 }
 
 * {
@@ -52,7 +53,7 @@ header {
   color: white;
   font-weight: 700;
   font-size: 18px;
-  box-shadow: var(--shadow);
+  box-shadow: var(--accent-shadow);
 }
 
 h1 {
@@ -89,6 +90,11 @@ input.searchbox::placeholder {
   color: #9ca3af;
 }
 
+input.searchbox:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-light);
+}
+
 .btn {
   padding: 10px 14px;
   border-radius: var(--radius);
@@ -98,10 +104,12 @@ input.searchbox::placeholder {
   cursor: pointer;
   box-shadow: var(--shadow);
   font-size: 14px;
+  transition: transform 0.2s, background 0.2s;
 }
 
 .btn:hover {
   background: #1d4ed8;
+  transform: scale(1.05);
 }
 
 .chips {
@@ -119,17 +127,19 @@ input.searchbox::placeholder {
   color: #374151;
   font-size: 13px;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.2s ease-in-out;
 }
 
 .chip:hover {
   background: #e5e7eb;
+  transform: scale(1.05);
 }
 
 .chip.active {
   background: var(--accent);
   color: white;
   border-color: var(--accent);
+  box-shadow: var(--accent-shadow);
 }
 
 .grid {
@@ -145,11 +155,12 @@ input.searchbox::placeholder {
   padding: 16px;
   border: 1px solid #e5e7eb;
   box-shadow: var(--shadow);
-  transition: transform 0.2s;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .card:hover {
-  transform: translateY(-2px);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 .meta {
@@ -200,10 +211,12 @@ pre.example {
   background: #f9fafb;
   color: #374151;
   cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
 }
 
 .small:hover {
   background: #e5e7eb;
+  transform: scale(1.05);
 }
 
 footer {

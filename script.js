@@ -29,7 +29,7 @@ const DATA = [
     name: "form",
     cat: "HTML",
     desc: "Defines an HTML form for user input.",
-    example: "<form >",
+    example: '<form action="/submit" method="post"> ... </form>',
   },
   {
     name: "input",
