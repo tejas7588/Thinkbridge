@@ -61,6 +61,18 @@ const DATA = [
     desc: "Defines a table for displaying tabular data.",
     example: "<table><tr><th>Name</th><td>John</td></tr></table>",
   },
+  {
+    name: "section",
+    cat: "HTML",
+    desc: "Groups related content together, often with a heading.",
+    example: "<section><h2>About Us</h2><p>Our story.</p></section>",
+  },
+  {
+    name: "article",
+    cat: "HTML",
+    desc: "An independent, self-contained piece of content, like a blog post.",
+    example: "<article><h3>Article Title</h3><p>Content</p></article>",
+  },
 
   // --- CSS ---
   {
@@ -104,6 +116,24 @@ const DATA = [
     cat: "CSS",
     desc: "Specifies positioning method.",
     example: "div { position: absolute; top:0; }",
+  },
+  {
+    name: "Flexbox",
+    cat: "CSS",
+    desc: "A one-dimensional layout method for arranging items.",
+    example: ".container { display: flex; justify-content: center; }",
+  },
+  {
+    name: "Grid",
+    cat: "CSS",
+    desc: "A two-dimensional layout system for creating complex grids.",
+    example: ".container { display: grid; grid-template-columns: 1fr 1fr; }",
+  },
+  {
+    name: "transform",
+    cat: "CSS",
+    desc: "Applies 2D or 3D transformations to an element.",
+    example: "div:hover { transform: scale(1.1); }",
   },
 
   // --- JavaScript ---
@@ -149,6 +179,24 @@ const DATA = [
     desc: "Loop statement.",
     example: "for(let i=0;i<5;i++){console.log(i);}",
   },
+  {
+    name: "Promise",
+    cat: "JavaScript",
+    desc: "An object representing the eventual completion or failure of an asynchronous operation.",
+    example: "new Promise((resolve, reject) => { ... });",
+  },
+  {
+    name: "async/await",
+    cat: "JavaScript",
+    desc: "Modern syntax for writing asynchronous code that looks synchronous.",
+    example: "async function fetchData() { const data = await fetch(...); }",
+  },
+  {
+    name: "arrow function",
+    cat: "JavaScript",
+    desc: "A concise syntax for writing function expressions.",
+    example: "const sum = (a, b) => a + b;",
+  },
 ];
 
 // State
@@ -158,7 +206,6 @@ const favorites = new Set(JSON.parse(localStorage.getItem("kb-favs") || "[]"));
 
 // Elements
 const grid = document.getElementById("grid");
-const chipsEl = document.getElementById("chips");
 const searchEl = document.getElementById("search");
 const printBtn = document.getElementById("printBtn");
 
