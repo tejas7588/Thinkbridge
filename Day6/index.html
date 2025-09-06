@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Delightful Keywords — HTML · CSS · JS</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header>
+        <div class="brand">
+          <div class="logo">K</div>
+          <div>
+            <h1>Delightful Keywords</h1>
+            <p class="lead">
+              HTML, CSS & JavaScript keyword reference with examples.
+            </p>
+          </div>
+        </div>
+        <div class="topbar-right">
+          <div class="kbd" title="Keyboard shortcut">
+            Press <strong>/</strong> to search
+          </div>
+          <button class="btn" id="printBtn">Print</button>
+        </div>
+      </header>
+
+      <div class="controls">
+        <input id="search" class="searchbox" placeholder="Search keywords..." />
+        <button class="btn" id="showAll">All</button>
+        <button class="btn" id="favOnly">Favorites</button>
+      </div>
+
+      <div class="chips" id="chips"></div>
+      <main>
+        <section class="grid" id="grid"></section>
+      </main>
+
+      <footer>
+        <small
+          >Save favorites locally. Copy examples to clipboard. Browser-only
+          app.</small
+        >
+      </footer>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
