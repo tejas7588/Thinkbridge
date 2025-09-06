@@ -161,26 +161,17 @@ const grid = document.getElementById("grid");
 const chipsEl = document.getElementById("chips");
 const searchEl = document.getElementById("search");
 const printBtn = document.getElementById("printBtn");
-const showAllBtn = document.getElementById("showAll");
-const favOnlyBtn = document.getElementById("favOnly");
 
-// Render chips
-const categories = ["HTML", "CSS", "JavaScript"];
-function renderChips() {
-  chipsEl.innerHTML = "";
-  categories.forEach((cat) => {
-    const chip = document.createElement("div");
-    chip.className = "chip" + (activeChip === cat ? " active" : "");
-    chip.textContent = cat;
-    chip.onclick = () => {
-      activeChip = cat;
-      render();
-      renderChips();
-    };
-    chipsEl.appendChild(chip);
-  });
-}
-renderChips();
+// Debouncing function
+const debounce = (func, delay) => {
+  let timeoutId;
+  return (...args) => {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => {
+      func.apply(this, args);
+    }, delay);
+  };
+};
 
 function render() {
   const query = searchEl.value.trim().toLowerCase();
@@ -217,9 +208,19 @@ function render() {
         }</button>
       </div>`;
 
-    // Copy button
-    card.querySelector(".copy").onclick = () => {
-      navigator.clipboard.writeText(k.example);
+    // Copy button with async/await
+    const copyBtn = card.querySelector(".copy");
+    copyBtn.onclick = async () => {
+      try {
+        await navigator.clipboard.writeText(k.example);
+        const originalText = copyBtn.textContent;
+        copyBtn.textContent = "Copied!";
+        setTimeout(() => {
+          copyBtn.textContent = originalText;
+        }, 1500);
+      } catch (err) {
+        console.error("Failed to copy text: ", err);
+      }
     };
 
     // Favorite button
@@ -236,3 +237,10 @@ function render() {
     grid.appendChild(card);
   });
 }
+
+// Add event listeners
+searchEl.addEventListener("input", debounce(render, 300));
+printBtn.addEventListener("click", () => window.print());
+
+// Initial render
+render();
