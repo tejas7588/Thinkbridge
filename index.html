@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Keyword Reference — HTML · CSS · JS</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Extra tweaks just for this version */
+      body {
+        display: flex;
+        min-height: 100vh;
+      }
+      .sidebar {
+        width: 220px;
+        background: #1f2937;
+        color: #f9fafb;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .sidebar h2 {
+        margin-top: 0;
+        font-size: 18px;
+      }
+      .sidebar button {
+        background: transparent;
+        border: none;
+        color: #e5e7eb;
+        text-align: left;
+        padding: 8px;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+      .sidebar button:hover,
+      .sidebar button.active {
+        background: #374151;
+        color: #fff;
+      }
+      .main {
+        flex: 1;
+        padding: 20px;
+        background: var(--bg);
+        overflow-y: auto;
+      }
+      header {
+        justify-content: space-between;
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <aside class="sidebar">
+      <h2>Categories</h2>
+      <button class="cat-btn active" data-cat="All">All</button>
+      <button class="cat-btn" data-cat="HTML">HTML</button>
+      <button class="cat-btn" data-cat="CSS">CSS</button>
+      <button class="cat-btn" data-cat="JavaScript">JavaScript</button>
+      <hr />
+      <button id="favSidebar">★ Favorites</button>
+    </aside>
+
+    <div class="main">
+      <header>
+        <div>
+          <h1>Keyword Reference</h1>
+          <p class="lead">Quick guide to HTML, CSS & JavaScript keywords.</p>
+        </div>
+        <div class="topbar-right">
+          <input id="search" class="searchbox" placeholder="Search..." />
+          <button class="btn" id="printBtn">Print</button>
+        </div>
+      </header>
+
+      <section class="grid" id="grid"></section>
+
+      <footer>
+        <small
+          >Keyword Reference © 2024. All rights reserved.
+          <a href="#">Privacy Policy</a> |
+          <a href="#">Terms of Service</a></small
+        >
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+      // Sidebar integration
+      const catBtns = document.querySelectorAll(".cat-btn");
+      catBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          catBtns.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          activeChip = btn.dataset.cat;
+          showFavs = false;
+          render();
+        });
+      });
+
+      document.getElementById("favSidebar").onclick = () => {
+        showFavs = true;
+        activeChip = "All";
+        catBtns.forEach((b) => b.classList.remove("active"));
+        render();
+      };
+    </script>
+  </body>
+</html>
